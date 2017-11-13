@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_restclient" default="compile.module.restclient">
+  <dirname property="module.restclient.basedir" file="${ant.file.module_restclient}"/>
+  
+  <property name="module.jdk.home.restclient" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.restclient" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.restclient" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.restclient" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="restclient.output.dir" value="${module.restclient.basedir}/target/classes"/>
+  <property name="restclient.testoutput.dir" value="${module.restclient.basedir}/target/test-classes"/>
+  
+  <path id="restclient.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="restclient.module.production.classpath">
+    <path refid="${module.jdk.classpath.restclient}"/>
+    <pathelement location="${common.output.dir}"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.13.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.bundles.repackaged:jersey-guava:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.13.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.extras:glassfish-embedded-web:3.1.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+  </path>
+  
+  <path id="restclient.runtime.production.module.classpath">
+    <pathelement location="${restclient.output.dir}"/>
+    <path refid="common.runtime.production.module.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.13.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.bundles.repackaged:jersey-guava:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.13.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.extras:glassfish-embedded-web:3.1.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+  </path>
+  
+  <path id="restclient.module.classpath">
+    <path refid="${module.jdk.classpath.restclient}"/>
+    <pathelement location="${restclient.output.dir}"/>
+    <pathelement location="${common.testoutput.dir}"/>
+    <pathelement location="${common.output.dir}"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.13.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.bundles.repackaged:jersey-guava:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.13.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.extras:glassfish-embedded-web:3.1.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+  </path>
+  
+  <path id="restclient.runtime.module.classpath">
+    <pathelement location="${restclient.testoutput.dir}"/>
+    <pathelement location="${restclient.output.dir}"/>
+    <path refid="common.runtime.module.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.13.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.bundles.repackaged:jersey-guava:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.3.0-b10.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.13.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet:2.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.extras:glassfish-embedded-web:3.1.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.restclient">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.restclient">
+    <patternset refid="excluded.from.module.restclient"/>
+  </patternset>
+  
+  <path id="restclient.module.sourcepath">
+    <dirset dir="${module.restclient.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.restclient" depends="compile.module.restclient.production,compile.module.restclient.tests" description="Compile module RestClient"/>
+  
+  <target name="compile.module.restclient.production" depends="register.custom.compilers,compile.module.common" description="Compile module RestClient; production classes">
+    <mkdir dir="${restclient.output.dir}"/>
+    <javac2 destdir="${restclient.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.restclient}/javac">
+      <compilerarg line="${compiler.args.restclient}"/>
+      <bootclasspath refid="restclient.module.bootclasspath"/>
+      <classpath refid="restclient.module.production.classpath"/>
+      <src refid="restclient.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.restclient"/>
+    </javac2>
+    
+    <copy todir="${restclient.output.dir}">
+      <fileset dir="${module.restclient.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.restclient.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.restclient.tests" depends="register.custom.compilers,compile.module.restclient.production" description="compile module RestClient; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.restclient" description="cleanup module">
+    <delete dir="${restclient.output.dir}"/>
+    <delete dir="${restclient.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,10 @@
+
+com.shaliov.client
+com.shaliov.client.controller
+com.shaliov.client.service
+com.shaliov.client.view
+com.shaliov.common.model
+com.shaliov.server
+com.shaliov.server.mysql
+com.shaliov.server.service
+com.shaliov.server.storage

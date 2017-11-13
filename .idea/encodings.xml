@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/RestClient/src/main/java/com/shaliov/client/MainClient.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestClient/src/main/java/com/shaliov/client/controller/BookTableController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestClient/src/main/java/com/shaliov/client/service/BookService.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestClient/src/main/java/com/shaliov/client/service/ClientConnection.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/MainServer.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/mysql/ConstForSQL.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/mysql/DBWorker.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/mysql/MysqlOption.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/service/BookService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RestServer/src/main/java/com/shaliov/server/storage/Storage.java" charset="windows-1251" />
+  </component>
+</project>

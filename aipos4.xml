@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="aipos4" default="all">
+  
+  
+  <property file="aipos4.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.validation:validation-api:1.1.0.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.4/junit-4.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_log4j:log4j:1.2.17.classpath">
+    <pathelement location="${path.variable.maven_repository}/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:5.1.31.classpath">
+    <pathelement location="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.extras:glassfish-embedded-web:3.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/extras/glassfish-embedded-web/3.1.1/glassfish-embedded-web-3.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.3.0-b10.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/external/aopalliance-repackaged/2.3.0-b10/aopalliance-repackaged-2.3.0-b10.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:javax.inject:2.3.0-b10.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/external/javax.inject/2.3.0-b10/javax.inject-2.3.0-b10.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-api:2.3.0-b10.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-api/2.3.0-b10/hk2-api-2.3.0-b10.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-locator:2.3.0-b10.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-locator/2.3.0-b10/hk2-locator-2.3.0-b10.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-utils:2.3.0-b10.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-utils/2.3.0-b10/hk2-utils-2.3.0-b10.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.bundles.repackaged:jersey-guava:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.13/jersey-guava-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/containers/jersey-container-servlet-core/2.13/jersey-container-servlet-core-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/containers/jersey-container-servlet/2.13/jersey-container-servlet-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-client:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-client/2.13/jersey-client-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-common:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-common/2.13/jersey-common-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-server:2.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-server/2.13/jersey-server-2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.javassist:javassist:3.18.1-ga.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.projectlombok:lombok:1.16.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/projectlombok/lombok/1.16.2/lombok-1.16.2.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_aipos4.xml"/>
+  
+  <import file="${basedir}/common/module_common.xml"/>
+  
+  <import file="${basedir}/RestClient/module_restclient.xml"/>
+  
+  <import file="${basedir}/RestServer/module_restserver.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.aipos4, clean.module.common, clean.module.restclient, clean.module.restserver, clean.artifact.restserver:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.aipos4, compile.module.common, compile.module.restclient, compile.module.restserver" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.restserver:war" value="${basedir}/RestServer/target"/>
+    <property name="artifact.output.restserver:war_exploded" value="${basedir}/RestServer/target/RestServer-1.0-SNAPSHOT"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.RestServer-1.0-SNAPSHOT.war" value="${artifacts.temp.dir}/RestServer-1.0-SNAPSHOT.war"/>
+    <property name="temp.jar.path.common-1.0-SNAPSHOT.jar" value="${artifacts.temp.dir}/common-1.0-SNAPSHOT.jar"/>
+  </target>
+  
+  <target name="clean.artifact.restserver:war_exploded" description="clean RestServer:war exploded artifact output">
+    <delete dir="${artifact.output.restserver:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.restserver:war" depends="init.artifacts, artifact.restserver:war_exploded" description="Build &#39;RestServer:war&#39; artifact">
+    <property name="artifact.temp.output.restserver:war" value="${artifacts.temp.dir}/RestServer_war"/>
+    <mkdir dir="${artifact.temp.output.restserver:war}"/>
+    <zip destfile="${temp.jar.path.RestServer-1.0-SNAPSHOT.war}">
+      <zipfileset dir="${artifact.output.restserver:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.RestServer-1.0-SNAPSHOT.war}" tofile="${artifact.temp.output.restserver:war}/RestServer-1.0-SNAPSHOT.war"/>
+  </target>
+  
+  <target name="artifact.restserver:war_exploded" depends="init.artifacts, compile.module.restserver, compile.module.common" description="Build &#39;RestServer:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.restserver:war_exploded}"/>
+    <jar destfile="${temp.jar.path.common-1.0-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${common.output.dir}"/>
+    </jar>
+    <mkdir dir="${artifact.output.restserver:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.restserver:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.restserver:war_exploded}/WEB-INF/classes">
+      <fileset dir="${restserver.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.restserver:war_exploded}/WEB-INF/lib"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/containers/jersey-container-servlet-core/2.13/jersey-container-servlet-core-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-container-servlet-core-2.13.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/external/javax.inject/2.3.0-b10/javax.inject-2.3.0-b10.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/javax.inject-2.3.0-b10.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-common/2.13/jersey-common-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-common-2.13.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/javax.annotation-api-1.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.13/jersey-guava-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-guava-2.13.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/hk2-api/2.3.0-b10/hk2-api-2.3.0-b10.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/hk2-api-2.3.0-b10.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/hk2-utils/2.3.0-b10/hk2-utils-2.3.0-b10.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/hk2-utils-2.3.0-b10.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/external/aopalliance-repackaged/2.3.0-b10/aopalliance-repackaged-2.3.0-b10.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/aopalliance-repackaged-2.3.0-b10.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/hk2-locator/2.3.0-b10/hk2-locator-2.3.0-b10.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/hk2-locator-2.3.0-b10.jar"/>
+    <copy file="${path.variable.maven_repository}/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-server/2.13/jersey-server-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-server-2.13.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-client/2.13/jersey-client-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-client-2.13.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/glassfish/jersey/containers/jersey-container-servlet/2.13/jersey-container-servlet-2.13.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/jersey-container-servlet-2.13.jar"/>
+    <copy file="${temp.jar.path.common-1.0-SNAPSHOT.jar}" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/common-1.0-SNAPSHOT.jar"/>
+    <copy file="${path.variable.maven_repository}/org/projectlombok/lombok/1.16.2/lombok-1.16.2.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/lombok-1.16.2.jar"/>
+    <copy file="${path.variable.maven_repository}/log4j/log4j/1.2.17/log4j-1.2.17.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/log4j-1.2.17.jar"/>
+    <copy file="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.31.jar"/>
+    <copy file="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/junit-4.12.jar"/>
+    <copy file="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" tofile="${artifact.output.restserver:war_exploded}/WEB-INF/lib/hamcrest-core-1.3.jar"/>
+    <mkdir dir="${artifact.output.restserver:war_exploded}/META-INF"/>
+    <copy file="${basedir}/RestServer/target/RestServer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" tofile="${artifact.output.restserver:war_exploded}/META-INF/MANIFEST.MF"/>
+    <copy todir="${artifact.output.restserver:war_exploded}">
+      <fileset dir="${basedir}/RestServer/src/main/webapp"/>
+    </copy>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.restserver:war, artifact.restserver:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.restserver:war}"/>
+    <copy todir="${artifact.output.restserver:war}">
+      <fileset dir="${artifact.temp.output.restserver:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

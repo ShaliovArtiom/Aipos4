@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Aipos4.iml" filepath="$PROJECT_DIR$/Aipos4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestClient/RestClient.iml" filepath="$PROJECT_DIR$/RestClient/RestClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestServer/RestServer.iml" filepath="$PROJECT_DIR$/RestServer/RestServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+    </modules>
+  </component>
+</project>
